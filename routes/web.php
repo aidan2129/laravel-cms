@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\PostController::class, 'all']);
-Route::get('/posts/{post}', [App\Http\Controllers\PostController::class, 'single']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/{any}', [AdminController::class, 'index'])->where('any', '.*');
+Route::get('/', [PostController::class, 'all']);
+Route::get('/posts/{post}', [PostController::class, 'single']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
