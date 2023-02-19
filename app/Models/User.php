@@ -68,4 +68,9 @@ class User extends Authenticatable
     {
         return (bool) $this->roles()->where('name', $role)->first();
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
