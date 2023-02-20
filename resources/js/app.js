@@ -1,22 +1,37 @@
 require('./bootstrap');
 
+window.Vue = require('vue');
 
 import { createApp } from 'vue';
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-import Homepage from './components/Homepage'
+import Homepage from './components/Homepage.vue'
 import Read from './components/Read.vue'
-const Home = { template: '<div>TODO: Fix so the Homepage.vue component shows and is the start point for router-view</div>' }
-
-
+import Create from './components/Create'
+import Update from './components/Update'
 
 const router = createRouter({
     // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
     history: createWebHashHistory(),
     routes: [
-        { path: '/', component: Home },
-        { path: '/admin/dashboard', component: Read, props: true },
+        { path: '/admin/dashboard', component: Read, props: true },        
+        {
+            path: '/admin/create',
+            name: 'create',
+            component: Create,
+            props: true
+        },
+        {
+            path: '/admin/update',
+            name: 'update',
+            component: Update,
+            props: true
+        },
     ]
 })
 
-createApp({}).use(router).mount('#app')
+
+
+const app = createApp({ components: { Homepage } })
+app.use(router)
+app.mount('#app')
 

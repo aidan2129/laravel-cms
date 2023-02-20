@@ -29,10 +29,9 @@
 
 <body>
     <div id="app" class="dashboard">
-        <router-view></router-view>
         <Homepage :user-name='@json(auth()->user()->name)' :user-id='@json(auth()->user()->id)'></Homepage>
-        <script src="{{ asset('js/app.js') }}"></script>
     </div>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 
 </html>
