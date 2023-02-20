@@ -16,8 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-Route::get('/admin/{any}', [AdminController::class, 'index'])->where('any', '.*');
+
 Route::get('/', [PostController::class, 'all']);
 Route::get('/posts/{post}', [PostController::class, 'single']);
+
+Auth::routes();
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/admin/{any}', [AdminController::class, 'index'])->where('any', '.*');
