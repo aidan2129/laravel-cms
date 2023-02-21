@@ -31,22 +31,20 @@ export default {
                 <a style="color: white" href="/admin/dashboard">HOME</a>
                 <hr>
                 <ul>
-                    <li> <router-link :to="{ name: 'create', params: { userId } }">NEW POST </router-link></li>
+                    <li> <router-link :to="{ name: 'create', params: { userId } }">NEW POST</router-link></li>
                 </ul>
             </section>
         </nav>
         <article>
             <header>
                 <header class="d-inline">Welcome, {{ userName }} </header>
-                <p @click="logout" class="float-right mr-3" style="cursor: pointer"> Logout </p>
+                <p @click="logout" class="float-right mr-3" style="cursor: pointer">Logout</p>
             </header>
             <div><router-view></router-view></div>
         </article>
     </div>
 </template>
-    
-    
-    
+
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
 @import url('https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css');
@@ -110,6 +108,7 @@ article {
 article>header {
     height: 60px;
     border-bottom: 1px solid #2a3843;
-}</style>
+}
+</style>
     
     
