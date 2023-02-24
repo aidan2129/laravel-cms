@@ -6,6 +6,8 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Resources\PostResource;
 use Illuminate\Support\Str;
+use RiotAPI\Base\Definitions\Region;
+
 class PostController extends Controller
 {
     /**
@@ -118,8 +120,10 @@ class PostController extends Controller
 
     public function all()
     {
+        $regions = Region::$list;
         return view('landing', [
-            'posts' => Post::latest()->paginate(5)
+            'posts' => Post::latest()->paginate(5),
+            'regions' => $regions
         ]);
     }
 
